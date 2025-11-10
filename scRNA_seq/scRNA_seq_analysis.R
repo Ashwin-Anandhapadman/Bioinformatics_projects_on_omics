@@ -74,7 +74,7 @@ print(dim(merged_seurat)) #33538 31444 (row stacking of ctrl and sample)
 View(merged_seurat@meta.data)
 
 #finding the no. of genes per UMI and adding the info to Seurat meta data
-merged_seurat$log10GenesPerUMI <- log10(merged_seurat$nFeature_RNA) / log10(merged_seurat$nCount_RNA)
+merged_seurat$log10GenesPerUMI <- log10(merged_seurat$nFeature_RNA / merged_seurat$nCount_RNA)
 
 # Compute percent mito ratio
 #info on how calc is done in PercentageFeatureSet:
@@ -346,3 +346,4 @@ head(seurat_integrated@meta.data)
 
 markers <- FindAllMarkers(seurat_integrated, only.pos = TRUE, 
                           min.pct = 0.1, logfc.threshold = 0.25)
+
