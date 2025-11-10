@@ -12,4 +12,4 @@ The dataset is derived from a large study performed by Kang et al. (https://www.
 4. One aliquot was treated with 100 U/mL of recombinant IFN-β for a duration of 6 hours.The second aliquot remained untreated.
 5. After excluding doublets, 12,138 cells were identified in the control sample and 12,167 in the stimulated sample.\
 
-The unprocessed dataset and the cell cycle data along was obtained from the Harvard Bioinformatics core's (HBC) tutorial on scRNA seq analysis: https://hbctraining.github.io/scRNA-seq_online/schedule/links-to-lessons.html. I would like to thank this HBC group for creating such a comprehensive and useful tutorial on performing scRNA analysis.
+The unprocessed dataset and the cell cycle data along was obtained from the Harvard Bioinformatics core's (HBC) group for creating a comprehensive and useful tutorial on performing scRNA analysis that I use for learning.
