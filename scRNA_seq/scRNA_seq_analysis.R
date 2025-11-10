@@ -311,6 +311,9 @@ DimHeatmap(seurat_phase,
            cells = 500, 
            balanced = TRUE)
 
+#The heatmap shows that top PCs capture broad biological effects like IFN response, immune cell type differences. 
+#Esp. PC2 shows Genes like IFIT1, IFIT3, MX1, RSAD2, OAS1 are classic interferon-stimulated genes. Therefore, IFN-β response is strongly represented here.
+
 # Printing out the most variable genes driving PCs
 print(x = seurat_phase[["pca"]], 
       dims = 1:10, 
@@ -340,10 +343,12 @@ DimPlot(seurat_integrated,
         reduction = "umap",
         group.by = "seurat_clusters")
 
-table(Idents(seurat_integrated))
-head(seurat_integrated@meta.data)
+table(Idents(seurat_integrated)) #Counts how many cells are in each active cluster
+head(seurat_integrated@meta.data) #hows the first few rows of metadata for cells; includes columns like nFeature_RNA, nCount_RNA, percent.mt, cluster assignments created. 
 
-
+#Perform differential expression (cluster vs rest) for every cluster, keeping only positive markers
 markers <- FindAllMarkers(seurat_integrated, only.pos = TRUE, 
                           min.pct = 0.1, logfc.threshold = 0.25)
+#min pct: Only test genes that are expressed (non-zero counts) in at least 10% of cells in either the cluster of interest or the comparison group
+
 
